@@ -1,5 +1,6 @@
 package baseball.game;
 
+import baseball.game.answer.Answer;
 import baseball.printer.Printer;
 import baseball.printer.SystemPrinter;
 import camp.nextstep.edu.missionutils.Console;
@@ -13,15 +14,17 @@ public class GameManager {
   public static final String RETRY = "1";
 
   private final Printer printer;
+  private final InputService inputService;
 
   public GameManager(final SystemPrinter printer) {
     this.printer = printer;
+    this.inputService = new InputService(printer);
   }
 
   public void start() {
     do {
       final Answer answer = new Answer();
-      // TODO: 입력 값 읽어오기
+      final int[] inputValues = inputService.readBallValue();
       // TODO: 정답 판단
       clear();
     } while (GAME_END_CHOICE.equals(RETRY));
