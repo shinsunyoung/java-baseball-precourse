@@ -1,8 +1,9 @@
-package baseball;
+package baseball.game;
 
 import baseball.printer.Printer;
 import baseball.printer.SystemPrinter;
 import camp.nextstep.edu.missionutils.Console;
+
 
 public class GameManager {
 
@@ -19,7 +20,7 @@ public class GameManager {
 
   public void start() {
     do {
-      // TODO: 정답 생
+      final Answer answer = new Answer();
       // TODO: 입력 값 읽어오기
       // TODO: 정답 판단
       clear();
@@ -30,4 +31,5 @@ public class GameManager {
     printer.print(FINISH_GAME_MESSAGE);
     GAME_END_CHOICE = Console.readLine();
   }
+
 }
