@@ -1,9 +1,9 @@
 package baseball.game;
 
-import baseball.game.answer.Answer;
 import baseball.printer.Printer;
 import baseball.printer.SystemPrinter;
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
 
 
 public class GameManager {
@@ -23,16 +23,32 @@ public class GameManager {
 
   public void start() {
     do {
-      final Answer answer = new Answer();
-      final int[] inputValues = inputService.readBallValue();
-      // TODO: 정답 판단
-      clear();
+      playing();
+      afterClear();
     } while (GAME_END_CHOICE.equals(RETRY));
   }
 
-  private void clear() {
+  private void playing() {
+    final Answer answer = new Answer();
+    continueUntilClear(answer);
+  }
+
+  private void continueUntilClear(final Answer answer) {
+    Result result = Result.init();
+
+    while (!result.isAnswer()) {
+      final List<Integer> inputValues = inputService.readBallValue();
+      result = Result.make(answer.getNumbers(), inputValues);
+      printHint(result);
+    }
+  }
+
+  private void afterClear() {
     printer.print(FINISH_GAME_MESSAGE);
     GAME_END_CHOICE = Console.readLine();
   }
 
+  private void printHint(Result result) {
+    printer.print(result.getHint().getMessage() + "\n");
+  }
 }
