@@ -17,7 +17,7 @@ public class Answer {
   private BallNumbers makeAnswer() {
     final List<Integer> uniqueNumbers = new ArrayList<>();
 
-    for (int i = 0; i < BALL_LENGTH; i++) {
+    while (uniqueNumbers.size() < BALL_LENGTH) {
       final int randomNumber = Randoms.pickNumberInRange(1, 9);
 
       if (uniqueNumbers.contains(randomNumber)) {
