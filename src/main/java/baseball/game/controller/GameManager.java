@@ -3,6 +3,7 @@ package baseball.game.controller;
 import baseball.game.service.InputService;
 import baseball.game.model.Answer;
 import baseball.game.model.Result;
+import baseball.game.view.HintView;
 import baseball.printer.Printer;
 import baseball.printer.SystemPrinter;
 import camp.nextstep.edu.missionutils.Console;
@@ -52,6 +53,6 @@ public class GameManager {
   }
 
   private void printHint(Result result) {
-    printer.print(result.getHint().getMessage() + "\n");
+    printer.print(new HintView(result.getHint()).getMessage() + "\n");
   }
 }
