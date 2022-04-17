@@ -3,18 +3,34 @@ package baseball.game;
 import static baseball.game.Game.BALL_LENGTH;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Answer {
 
-  private final int[] numbers = new int[BALL_LENGTH];
+  private final List<Integer> numbers;
 
   public Answer() {
-    for (int i = 0; i < BALL_LENGTH; i++) {
-      numbers[i] = Randoms.pickNumberInRange(1, 10);
-    }
+    this.numbers = makeAnswer();
   }
 
-  public int[] getNumbers() {
+  private List<Integer> makeAnswer() {
+    final List<Integer> uniqueNumbers = new ArrayList<>();
+
+    for (int i = 0; i < BALL_LENGTH; i++) {
+      final int randomNumber = Randoms.pickNumberInRange(1, 9);
+
+      if (uniqueNumbers.contains(randomNumber)) {
+        continue;
+      }
+
+      uniqueNumbers.add(randomNumber);
+    }
+
+    return uniqueNumbers;
+  }
+
+  public List<Integer> getNumbers() {
     return numbers;
   }
 }

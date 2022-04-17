@@ -5,6 +5,7 @@ import static baseball.game.Game.BALL_LENGTH;
 import baseball.printer.Printer;
 import baseball.util.StringUtils;
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
 
 public class InputService {
 
@@ -16,11 +17,11 @@ public class InputService {
     this.printer = printer;
   }
 
-  public int[] readBallValue() {
+  public List<Integer> readBallValue() {
     printer.print(INPUT_MESSAGE);
     final String input = Console.readLine();
     validInput(input);
-    return StringUtils.convertToIntArray(input);
+    return StringUtils.convertToIntegerList(input);
   }
 
   private void validInput(final String input) {
