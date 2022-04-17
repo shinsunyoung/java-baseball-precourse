@@ -25,24 +25,24 @@ public class InputService {
   }
 
   private void validInput(final String input) {
-    mustBeEqualSpecifiedLength(input);
-    mustBePositiveNumber(input);
-    mustBeIndependentNumber(input);
+    validBallLength(input);
+    validBallValue(input);
+    validIndependentNumber(input);
   }
 
-  private void mustBeEqualSpecifiedLength(final String input) {
+  private void validBallLength(final String input) {
     if (input.length() != BALL_LENGTH) {
       throw new IllegalArgumentException();
     }
   }
 
-  private void mustBePositiveNumber(final String input) {
+  private void validBallValue(final String input) {
     if (!StringUtils.isPositiveNumber(input)) {
       throw new IllegalArgumentException();
     }
   }
 
-  private void mustBeIndependentNumber(final String input) {
+  private void validIndependentNumber(final String input) {
     if (StringUtils.hasDuplicatedNumber(input)) {
       throw new IllegalArgumentException();
     }
