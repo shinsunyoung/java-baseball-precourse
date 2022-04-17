@@ -1,5 +1,8 @@
-package baseball.game;
+package baseball.game.controller;
 
+import baseball.game.service.InputService;
+import baseball.game.model.Answer;
+import baseball.game.model.Result;
 import baseball.printer.Printer;
 import baseball.printer.SystemPrinter;
 import camp.nextstep.edu.missionutils.Console;

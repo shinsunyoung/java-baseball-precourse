@@ -1,6 +1,6 @@
-package baseball.game;
+package baseball.game.model;
 
-import static baseball.game.Game.BALL_LENGTH;
+import static baseball.game.model.Game.BALL_LENGTH;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;

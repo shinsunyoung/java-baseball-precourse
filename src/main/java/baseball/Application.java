@@ -1,6 +1,6 @@
 package baseball;
 
-import baseball.game.GameManager;
+import baseball.game.controller.GameManager;
 import baseball.printer.SystemPrinter;
 
 public class Application {

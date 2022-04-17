@@ -1,4 +1,4 @@
-package baseball.game;
+package baseball.game.model;
 
 public class Game {
 

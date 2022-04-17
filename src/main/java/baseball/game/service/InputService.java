@@ -1,6 +1,6 @@
-package baseball.game;
+package baseball.game.service;
 
-import static baseball.game.Game.BALL_LENGTH;
+import static baseball.game.model.Game.BALL_LENGTH;
 
 import baseball.printer.Printer;
 import baseball.util.StringUtils;
