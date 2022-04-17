@@ -1,6 +1,7 @@
 package baseball.game.service;
 
-import static baseball.game.model.Game.BALL_LENGTH;
+
+import static baseball.game.model.BallNumbers.BALL_LENGTH;
 
 import baseball.printer.Printer;
 import baseball.util.StringUtils;

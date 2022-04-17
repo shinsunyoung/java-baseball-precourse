@@ -1,6 +1,6 @@
 package baseball.game.model;
 
-import static baseball.game.model.Game.BALL_LENGTH;
+import static baseball.game.model.BallNumbers.BALL_LENGTH;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
@@ -8,13 +8,13 @@ import java.util.List;
 
 public class Answer {
 
-  private final List<Integer> numbers;
+  private final BallNumbers numbers;
 
   public Answer() {
     this.numbers = makeAnswer();
   }
 
-  private List<Integer> makeAnswer() {
+  private BallNumbers makeAnswer() {
     final List<Integer> uniqueNumbers = new ArrayList<>();
 
     for (int i = 0; i < BALL_LENGTH; i++) {
@@ -27,10 +27,10 @@ public class Answer {
       uniqueNumbers.add(randomNumber);
     }
 
-    return uniqueNumbers;
+    return new BallNumbers(uniqueNumbers);
   }
 
-  public List<Integer> getNumbers() {
+  public BallNumbers getNumbers() {
     return numbers;
   }
 }
