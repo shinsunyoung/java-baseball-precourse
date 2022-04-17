@@ -1,5 +1,6 @@
 package baseball.game.controller;
 
+import baseball.game.model.Hint;
 import baseball.game.service.InputService;
 import baseball.game.model.Answer;
 import baseball.game.model.Result;
@@ -53,6 +54,7 @@ public class GameManager {
   }
 
   private void printHint(Result result) {
-    printer.print(new HintView(result.getHint()).getMessage() + "\n");
+    Hint hint = new Hint(result);
+    printer.print(new HintView(hint).getMessage() + "\n");
   }
 }

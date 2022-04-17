@@ -13,7 +13,7 @@ public class HintView {
   public static final String STRIKE_MESSAGE = "스트라이크";
   public static final String BALL_MESSAGE = "볼";
 
-  private List<String> message = new ArrayList<>();
+  private final List<String> message = new ArrayList<>();
 
   public HintView(Hint hint) {
     addMessageIfNothing(hint.getNothing());

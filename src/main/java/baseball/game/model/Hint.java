@@ -7,10 +7,10 @@ public class Hint {
   private Strike strike;
   private Nothing nothing;
 
-  public Hint(final int strikeCount, final int ballCount) {
-    addHintIfNothing(strikeCount, ballCount);
-    addHintIfBall(ballCount);
-    addHintIfStrike(strikeCount);
+  public Hint(Result result) {
+    addHintIfNothing(result.getStrikeCount(), result.getBallCount());
+    addHintIfBall(result.getBallCount());
+    addHintIfStrike(result.getStrikeCount());
   }
 
   public Ball getBall() {

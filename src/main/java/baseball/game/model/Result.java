@@ -8,48 +8,42 @@ import java.util.List;
 public class Result {
 
   private final boolean answer;
+  private final int strikeCount;
+  private final int ballCount;
 
-  private final Hint hint;
-
-  private Result(final boolean answer, final Hint hint) {
+  private Result(boolean answer, int strikeCount, int ballCount) {
     this.answer = answer;
-    this.hint = hint;
+    this.strikeCount = strikeCount;
+    this.ballCount = ballCount;
+  }
+
+  public static Result make(final BallNumbers answer, final List<Integer> input) {
+    int strikeCount = countStrike(answer, input);
+    int ballCount = countBall(answer, input);
+
+    return new Result(checkAnswer(strikeCount, ballCount), strikeCount, ballCount);
+  }
+
+  public static Result init() {
+    return new Result(false, 0, 0);
   }
 
   public boolean isAnswer() {
     return answer;
   }
 
-  public Hint getHint() {
-    return hint;
+  public int getStrikeCount() {
+    return strikeCount;
   }
 
-  public static Result correct() {
-    return new Result(true, new Hint(BALL_LENGTH, 0));
+  public int getBallCount() {
+    return ballCount;
   }
 
-  public static Result wrong(final int strike, final int ball) {
-    return new Result(false, new Hint(strike, ball));
+  private static boolean checkAnswer(int strikeCount, int ballCount) {
+    return strikeCount == BALL_LENGTH;
   }
 
-  public static Result init() {
-    return new Result(false, null);
-  }
-
-  public static Result make(final BallNumbers answer, final List<Integer> input) {
-    final int strikeCount = countStrike(answer, input);
-    final int ballCount = countBall(answer, input);
-
-    return calculation(strikeCount, ballCount);
-  }
-
-  private static Result calculation(int strikeCount, int ballCount) {
-    if (strikeCount == BALL_LENGTH) {
-      return correct();
-    }
-
-    return wrong(strikeCount, ballCount);
-  }
 
   private static int countStrike(final BallNumbers answer, final List<Integer> input) {
     int count = 0;
