@@ -1,6 +1,8 @@
 package baseball.util;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class StringUtils {
@@ -41,13 +43,13 @@ public class StringUtils {
     return set.size() != input.length();
   }
 
-  public static int[] convertToIntArray(final String input) {
+  public static List<Integer> convertToIntegerList(final String input) {
     assert (input != null);
-    
-    final int[] digits = new int[input.length()];
+
+    final List<Integer> digits = new ArrayList<>(input.length());
 
     for (int i = 0; i < input.length(); i++) {
-      digits[i] = input.charAt(i) - '0';
+      digits.add(i, input.charAt(i) - '0');
     }
 
     return digits;
