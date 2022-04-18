@@ -1,14 +1,14 @@
 package baseball.game.controller;
 
+import baseball.game.model.BallNumbers;
 import baseball.game.model.Hint;
-import baseball.game.service.InputService;
 import baseball.game.model.Answer;
 import baseball.game.model.Result;
 import baseball.game.view.HintView;
+import baseball.game.view.InputView;
 import baseball.printer.Printer;
 import baseball.printer.SystemPrinter;
 import camp.nextstep.edu.missionutils.Console;
-import java.util.List;
 
 
 public class GameManager {
@@ -19,11 +19,11 @@ public class GameManager {
   public static final String RETRY = "1";
 
   private final Printer printer;
-  private final InputService inputService;
+  private final InputView inputView;
 
   public GameManager(final SystemPrinter printer) {
     this.printer = printer;
-    this.inputService = new InputService(printer);
+    this.inputView = new InputView(printer);
   }
 
   public void start() {
@@ -42,8 +42,9 @@ public class GameManager {
     Result result = Result.init();
 
     while (!result.isAnswer()) {
-      final List<Integer> inputValues = inputService.readBallValue();
-      result = Result.make(answer.getNumbers(), inputValues);
+
+      BallNumbers ballNumbers = inputView.readBallValue();
+      result = Result.make(answer.getNumbers(), ballNumbers);
       printHint(result);
     }
   }

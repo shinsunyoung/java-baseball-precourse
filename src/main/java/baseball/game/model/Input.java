@@ -1,31 +1,23 @@
-package baseball.game.service;
-
+package baseball.game.model;
 
 import static baseball.game.model.BallNumbers.BALL_LENGTH;
 
-import baseball.printer.Printer;
 import baseball.util.StringUtils;
-import camp.nextstep.edu.missionutils.Console;
-import java.util.List;
 
-public class InputService {
+public class Input {
 
-  private final Printer printer;
+  private final String value;
 
-  private static final String INPUT_MESSAGE = "숫자를 입력해주세요 : ";
-
-  public InputService(final Printer printer) {
-    this.printer = printer;
+  public Input(String value) {
+    validate(value);
+    this.value = value;
   }
 
-  public List<Integer> readBallValue() {
-    printer.print(INPUT_MESSAGE);
-    final String input = Console.readLine();
-    validInput(input);
-    return StringUtils.convertToIntegerList(input);
+  public String getValue() {
+    return value;
   }
 
-  private void validInput(final String input) {
+  private void validate(final String input) {
     validBallLength(input);
     validBallValue(input);
     validIndependentNumber(input);
@@ -48,5 +40,4 @@ public class InputService {
       throw new IllegalArgumentException();
     }
   }
-
 }

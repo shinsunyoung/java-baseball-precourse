@@ -14,7 +14,7 @@ class HintTest {
   void nothingHintTest() {
     // given
     BallNumbers answer = new BallNumbers(Lists.list(1, 2, 3));
-    List<Integer> input = Lists.list(4, 5, 6);
+    BallNumbers input = new BallNumbers(Lists.list(4, 5, 6));
 
     Result nothing = Result.make(answer, input);
 
@@ -33,7 +33,7 @@ class HintTest {
   void ballHintTest() {
     // given
     BallNumbers answer = new BallNumbers(Lists.list(1, 2, 3));
-    List<Integer> input = Lists.list(2, 5, 6);
+    BallNumbers input = new BallNumbers(Lists.list(2, 5, 6));
 
     Result oneBall = Result.make(answer, input);
 
@@ -51,7 +51,8 @@ class HintTest {
   void strikeHintTest() {
     // given
     BallNumbers answer = new BallNumbers(Lists.list(1, 2, 3));
-    List<Integer> input = Lists.list(1, 2, 6);
+    BallNumbers input = new BallNumbers(Lists.list(1, 2, 6));
+
 
     Result twoStrike = Result.make(answer, input);
 
@@ -69,7 +70,7 @@ class HintTest {
   void ballAndStrikeHintTest() {
     // given
     BallNumbers answer = new BallNumbers(Lists.list(1, 2, 3));
-    List<Integer> input = Lists.list(1, 3, 6);
+    BallNumbers input = new BallNumbers(Lists.list(1, 3, 6));
 
     Result oneBallOneStrike = Result.make(answer, input);
 

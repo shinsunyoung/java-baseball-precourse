@@ -17,7 +17,7 @@ public class Result {
     this.ballCount = ballCount;
   }
 
-  public static Result make(final BallNumbers answer, final List<Integer> input) {
+  public static Result make(final BallNumbers answer, final BallNumbers input) {
     int strikeCount = countStrike(answer, input);
     int ballCount = countBall(answer, input);
 
@@ -45,7 +45,7 @@ public class Result {
   }
 
 
-  private static int countStrike(final BallNumbers answer, final List<Integer> input) {
+  private static int countStrike(final BallNumbers answer, final BallNumbers input) {
     int count = 0;
 
     for (int i = 0; i < answer.getSize(); i++) {
@@ -58,7 +58,7 @@ public class Result {
   }
 
 
-  private static int countBall(final BallNumbers answer, final List<Integer> input) {
+  private static int countBall(final BallNumbers answer, final BallNumbers input) {
     int count = 0;
 
     for (int i = 0; i < answer.getSize(); i++) {

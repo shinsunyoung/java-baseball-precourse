@@ -14,7 +14,7 @@ class ResultTest {
   void threeStrikeResultTest() {
     // given
     BallNumbers answer = new BallNumbers(Lists.list(1, 2, 3));
-    List<Integer> input = Lists.list(1, 2, 3);
+    BallNumbers input = new BallNumbers(Lists.list(1, 2, 3));
 
     // when
     Result threeStrike = Result.make(answer, input);
@@ -29,7 +29,8 @@ class ResultTest {
   void nothingResultTest() {
     // given
     BallNumbers answer = new BallNumbers(Lists.list(1, 2, 3));
-    List<Integer> input = Lists.list(4, 5, 6);
+    BallNumbers input = new BallNumbers(Lists.list(4, 5, 6));
+
 
     // when
     Result nothing = Result.make(answer, input);
@@ -46,7 +47,7 @@ class ResultTest {
   void ballAndStrikeHintTest() {
     // given
     BallNumbers answer = new BallNumbers(Lists.list(1, 2, 3));
-    List<Integer> input = Lists.list(1, 3, 6);
+    BallNumbers input = new BallNumbers(Lists.list(1, 3, 6));
 
     // when
     Result oneBallOneStrike = Result.make(answer, input);
