@@ -21,7 +21,7 @@ public class Result {
     int strikeCount = countStrike(answer, input);
     int ballCount = countBall(answer, input);
 
-    return new Result(checkAnswer(strikeCount, ballCount), strikeCount, ballCount);
+    return new Result(checkAnswer(strikeCount), strikeCount, ballCount);
   }
 
   public static Result init() {
@@ -40,7 +40,7 @@ public class Result {
     return ballCount;
   }
 
-  private static boolean checkAnswer(int strikeCount, int ballCount) {
+  private static boolean checkAnswer(int strikeCount) {
     return strikeCount == BALL_LENGTH;
   }
 
